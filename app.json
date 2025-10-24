@@ -1,0 +1,29 @@
+{
+  "name": "TPass MFA Server",
+  "description": "Multi-Factor Authentication server for TPass",
+  "repository": "https://github.com/your-username/tpass-mfa",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["spring-boot", "kotlin", "mfa", "authentication"],
+  "stack": "heroku-22",
+  "buildpacks": [
+    {
+      "url": "heroku/gradle"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": {
+      "description": "PostgreSQL database URL",
+      "required": true
+    },
+    "FCM_SERVER_KEY": {
+      "description": "Firebase Cloud Messaging server key",
+      "required": true
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:mini",
+      "as": "DATABASE"
+    }
+  ]
+}

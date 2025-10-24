@@ -1,0 +1,40 @@
+﻿server:
+  port: ${PORT:8081}
+
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:55432/tpass_mfa}
+    username: ${DB_USERNAME:tpass}
+    password: ${DB_PASSWORD:tpass}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+# FCM Configuration
+fcm:
+  server-key: ${FCM_SERVER_KEY:}
+  url: https://fcm.googleapis.com/fcm/send
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,mappings
+
+logging:
+  level:
+    root: INFO
+    com.tpass.mfa: DEBUG
+    org.springframework.web: DEBUG
+    com.google.firebase: DEBUG
+  file:
+    name: logs/tpass-mfa.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
