@@ -7,8 +7,8 @@ plugins {
 }
 
 group = 'com.tpass'
-version = '1.0.0'
-description = 'TPass MFA Server'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
 
 java {
 	toolchain {
@@ -55,14 +55,4 @@ allOpen {
 
 tasks.named('test') {
 	useJUnitPlatform()
-}
-
-// Создание исполняемого JAR для Heroku
-jar {
-	enabled = false
-	archiveClassifier = ''
-}
-
-bootJar {
-	archiveFileName = 'tpass-mfa-1.0.0.jar'
 }
