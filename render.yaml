@@ -9,8 +9,7 @@ services:
           name: tpass-db
           property: connectionString
       - key: FCM_SERVER_KEY
-        sync: false
-        value: ""  # Установите в Render Dashboard
+        value: ""  # Установите в Render Dashboard после развертывания
       - key: PORT
         value: 8080
     healthCheckPath: /actuator/health
